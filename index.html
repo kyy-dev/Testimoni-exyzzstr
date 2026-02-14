@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exyzz STR | Testimonials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #05070a;
+            --card: #0f1117;
+            --accent: #3081f7;
+            --border: #1e293b;
+            --text-sec: #94a3b8;
+            --wa-green: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body {
+            background-color: var(--bg);
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px 20px 100px;
+        }
+
+        .container { width: 100%; max-width: 480px; }
+
+        header { text-align: center; margin-bottom: 25px; }
+        h1 { font-size: 2.2rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+        .sub { color: var(--text-sec); font-size: 0.9rem; margin-top: 8px; }
+
+        /* Social Media Section */
+        .social-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .link-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .link-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .link-card i { font-size: 1.1rem; color: var(--accent); }
+
+        /* Testimoni List */
+        #testi-list { display: flex; flex-direction: column; gap: 20px; }
+
+        .testi-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 20px;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .buyer-name { font-weight: 800; font-size: 1rem; }
+        .date { font-size: 0.7rem; color: var(--text-sec); }
+
+        .item-badge {
+            display: inline-block;
+            background: rgba(48, 129, 247, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .evidence-img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
+            background: #1a1d24;
+            display: block;
+        }
+
+        .message { font-size: 0.9rem; line-height: 1.6; color: #cbd5e1; font-style: italic; }
+
+        /* Status States */
+        .status-msg {
+            text-align: center;
+            color: var(--text-sec);
+            padding: 50px 20px;
+            font-size: 0.9rem;
+        }
+        .status-msg i { font-size: 1.5rem; margin-bottom: 15px; color: var(--accent); }
+
+        /* Floating WA Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--wa-green);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .floating-wa:hover { transform: scale(1.05); }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Exyzz STR</h1>
+            <p class="sub">Pusat Testimoni & Informasi Rekber Amanah</p>
+        </header>
+
+        <div class="social-links">
+            <a href="https://website-jb.vercel.app/" class="link-card" target="_blank">
+                <i class="fas fa-globe"></i>
+                <span>Website Utama</span>
+            </a>
+            <a href="https://tiktok.com/@exyzzstr11" class="link-card" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok Official</span>
+            </a>
+            <a href="https://chat.whatsapp.com/KJX3eCeOHmu8UoZyl1iWxR" class="link-card" target="_blank">
+                <i class="fas fa-users"></i>
+                <span>Grup Komunitas</span>
+            </a>
+            <a href="https://wa.me/6285168854965" class="link-card" target="_blank">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin Utama</span>
+            </a>
+        </div>
+
+        <div id="testi-list">
+            <div class="status-msg">
+                <i class="fas fa-circle-notch fa-spin"></i><br>
+                Sinkronisasi data GitHub...
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/6285168854965" class="floating-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat Admin</span>
+    </a>
+
+<script>
+/**
+ * KONFIGURASI DATABASE GITHUB
+ * Mengambil data via API agar instan (No Cache)
+ */
+const CFG = {
+    user: "kyy-dev",
+    repo: "Website-testimoni",
+    file: "testi.json"
+};
+
+async function loadData() {
+    const list = document.getElementById("testi-list");
+    
+    try {
+        // Menggunakan GitHub API untuk menghindari cache link raw
+        const res = await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${CFG.file}?t=${Date.now()}`);
+        
+        if (!res.ok) throw new Error("Database tidak ditemukan");
+
+        const jsonRes = await res.json();
+        
+        // Decode base64 dari GitHub API ke String JSON lalu Parse ke Array
+        const rawContent = atob(jsonRes.content);
+        const data = JSON.parse(rawContent);
+
+        if (data.length === 0) {
+            list.innerHTML = `<div class="status-msg">Belum ada testimoni terbaru.</div>`;
+            return;
+        }
+
+        // Tampilkan data (terbaru di posisi paling atas)
+        list.innerHTML = data.reverse().map(t => `
+            <div class="testi-card">
+                <div class="card-top">
+                    <span class="buyer-name">@${t.buyer}</span>
+                    <span class="date">${t.date}</span>
+                </div>
+                <div class="item-badge">Done ${t.item} ✅</div>
+                ${t.img ? `
+                    <img src="https://raw.githubusercontent.com/${CFG.user}/${CFG.repo}/main/${t.img}" 
+                         class="evidence-img" 
+                         alt="Bukti"
+                         onerror="this.style.display='none'">
+                ` : ""}
+                <p class="message">"${t.msg}"</p>
+            </div>
+        `).join('');
+
+    } catch (err) {
+        console.error(err);
+        list.innerHTML = `
+            <div class="status-msg" style="color: #ef4444;">
+                <i class="fas fa-exclamation-circle"></i><br>
+                Gagal memuat database.<br>
+                <small>Pastikan repo publik & file testi.json tersedia.</small>
+            </div>`;
+    }
+}
+
+// Jalankan saat halaman dibuka
+loadData();
+</script>
+</body>
+</html>
