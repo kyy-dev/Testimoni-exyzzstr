@@ -3,130 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exyzz STR | Testimonials</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Exyzz STR | Verified Testimonials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg: #05070a;
-            --card: #0f1117;
-            --accent: #3081f7;
-            --border: #1e293b;
-            --text-sec: #94a3b8;
-            --wa-green: #25d366;
+            --bg: #030712;
+            --card: #111827;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --border: #1f2937;
+            --text-main: #f3f4f6;
+            --text-sec: #9ca3af;
+            --wa-green: #22c55e;
+            --glass: rgba(17, 24, 39, 0.8);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background-color: var(--bg);
-            color: white;
-            display: flex;
-            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 0% 0%, #1e3a8a 0%, transparent 25%),
+                radial-gradient(circle at 100% 100%, #1e1b4b 0%, transparent 25%);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             padding: 20px 20px 100px;
+            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        .container { width: 100%; max-width: 480px; }
+        .container { width: 100%; max-width: 500px; margin: 0 auto; }
 
-        header { text-align: center; margin-bottom: 25px; }
-        h1 { font-size: 2.2rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
-        .sub { color: var(--text-sec); font-size: 0.9rem; margin-top: 8px; }
+        header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+        header h1 { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            letter-spacing: -1.5px; 
+            background: linear-gradient(to bottom right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
 
-        /* Social Media Section */
+        /* Social Grid */
         .social-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 40px;
         }
-
         .link-card {
-            background: var(--card);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 18px;
             text-decoration: none;
-            color: white;
-            font-size: 0.8rem;
+            color: var(--text-main);
             display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .link-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background: rgba(31, 41, 55, 0.5);
+        }
+        .link-card i { font-size: 1.4rem; color: var(--accent); }
+        .link-card span { font-size: 0.8rem; font-weight: 600; color: var(--text-sec); }
+        .link-card b { font-size: 0.85rem; font-weight: 700; }
 
-        .link-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .link-card i { font-size: 1.1rem; color: var(--accent); }
-
-        /* Testimoni List */
-        #testi-list { display: flex; flex-direction: column; gap: 20px; }
+        /* Testimoni Styling */
+        #testi-list { display: grid; gap: 25px; }
 
         .testi-card {
-            background: var(--card);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 20px;
-            animation: slideUp 0.6s ease forwards;
+            border-radius: 28px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease backwards;
         }
 
-        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .buyer-name { font-weight: 800; font-size: 1rem; }
-        .date { font-size: 0.7rem; color: var(--text-sec); }
+        .testi-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent);
+        }
 
-        .item-badge {
-            display: inline-block;
-            background: rgba(48, 129, 247, 0.1);
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .buyer-info { display: flex; flex-direction: column; }
+        .buyer-name { font-weight: 800; font-size: 1.05rem; color: var(--accent); }
+        .date { font-size: 0.7rem; color: var(--text-dim); font-weight: 500; }
+
+        .status-tag {
+            background: rgba(59, 130, 246, 0.1);
             color: var(--accent);
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .item-name {
+            font-size: 0.9rem;
             font-weight: 700;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .evidence-img {
+        .evidence-wrapper {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 16px;
+            overflow: hidden;
             border: 1px solid var(--border);
-            margin-bottom: 15px;
-            background: #1a1d24;
-            display: block;
+            margin-bottom: 18px;
+            cursor: pointer;
+        }
+        .evidence-img { width: 100%; display: block; transition: 0.5s; }
+        .evidence-img:hover { transform: scale(1.05); }
+
+        .message { 
+            font-size: 0.925rem; 
+            line-height: 1.6; 
+            color: #d1d5db; 
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 14px;
+            border-left: 3px solid var(--border);
         }
 
-        .message { font-size: 0.9rem; line-height: 1.6; color: #cbd5e1; font-style: italic; }
-
-        /* Status States */
-        .status-msg {
-            text-align: center;
-            color: var(--text-sec);
-            padding: 50px 20px;
-            font-size: 0.9rem;
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, #111827 25%, #1f2937 50%, #111827 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            height: 200px;
+            border-radius: 28px;
         }
-        .status-msg i { font-size: 1.5rem; margin-bottom: 15px; color: var(--accent); }
 
-        /* Floating WA Button */
+        @keyframes loading { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Floating Button */
         .floating-wa {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: var(--wa-green);
             color: white;
-            padding: 12px 20px;
+            padding: 14px 24px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
             display: flex;
             align-items: center;
             gap: 10px;
             z-index: 1000;
             transition: 0.3s;
         }
-        .floating-wa:hover { transform: scale(1.05); }
+        .floating-wa:hover { transform: translateY(-5px) scale(1.05); }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .error-state { text-align: center; padding: 40px; color: var(--danger); }
     </style>
 </head>
 <body>
@@ -134,103 +195,119 @@
     <div class="container">
         <header>
             <h1>Exyzz STR</h1>
-            <p class="sub">Pusat Testimoni & Informasi Rekber Amanah</p>
+            <div class="verified-badge">
+                <i class="fas fa-check-circle"></i>
+                Verified Middleman Service
+            </div>
         </header>
 
         <div class="social-links">
             <a href="https://website-jb.vercel.app/" class="link-card" target="_blank">
-                <i class="fas fa-globe"></i>
-                <span>Website Utama</span>
-            </a>
-            <a href="https://tiktok.com/@exyzzstr11" class="link-card" target="_blank">
-                <i class="fab fa-tiktok"></i>
-                <span>TikTok Official</span>
-            </a>
-            <a href="https://chat.whatsapp.com/KJX3eCeOHmu8UoZyl1iWxR" class="link-card" target="_blank">
-                <i class="fas fa-users"></i>
-                <span>Grup Komunitas</span>
+                <i class="fas fa-globe-asia"></i>
+                <span>Official</span>
+                <b>Main Website</b>
             </a>
             <a href="https://wa.me/6285168854965" class="link-card" target="_blank">
                 <i class="fas fa-user-shield"></i>
-                <span>Admin Utama</span>
+                <span>Direct</span>
+                <b>Admin Utama</b>
+            </a>
+            <a href="https://chat.whatsapp.com/KJX3eCeOHmu8UoZyl1iWxR" class="link-card" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>Community</span>
+                <b>WhatsApp Group</b>
+            </a>
+            <a href="https://tiktok.com/@exyzzstr11" class="link-card" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span>Social</span>
+                <b>TikTok Official</b>
             </a>
         </div>
 
         <div id="testi-list">
-            <div class="status-msg">
-                <i class="fas fa-circle-notch fa-spin"></i><br>
-                Sinkronisasi data GitHub...
-            </div>
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
         </div>
     </div>
 
     <a href="https://wa.me/6285168854965" class="floating-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span>Chat Admin</span>
+        <i class="fab fa-whatsapp fa-lg"></i>
+        <span>Hubungi Admin</span>
     </a>
 
 <script>
-/**
- * KONFIGURASI DATABASE GITHUB
- * Mengambil data via API agar instan (No Cache)
- */
-// GANTI BAGIAN INI DI index.html
 const CFG = {
     user: "kyy-dev",
-    repo: "Testimoni-exyzzstr", // Sesuaikan dengan nama di gambar (Perhatikan huruf besar/kecil)
+    repo: "Testimoni-exyzzstr",
     file: "testi.json"
 };
+
+// Fungsi Decode UTF-8 untuk support Emoji
+function safeDecode(str) {
+    try {
+        return decodeURIComponent(escape(atob(str)));
+    } catch (e) {
+        return atob(str); // Fallback jika format standar
+    }
+}
 
 async function loadData() {
     const list = document.getElementById("testi-list");
     
     try {
-        // Menggunakan GitHub API untuk menghindari cache link raw
         const res = await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${CFG.file}?t=${Date.now()}`);
-        
-        if (!res.ok) throw new Error("Database tidak ditemukan");
+        if (!res.ok) throw new Error();
 
         const jsonRes = await res.json();
-        
-        // Decode base64 dari GitHub API ke String JSON lalu Parse ke Array
-        const rawContent = atob(jsonRes.content);
+        const rawContent = safeDecode(jsonRes.content);
         const data = JSON.parse(rawContent);
 
         if (data.length === 0) {
-            list.innerHTML = `<div class="status-msg">Belum ada testimoni terbaru.</div>`;
+            list.innerHTML = `<div style="text-align:center; padding:50px; color:var(--text-sec)">Belum ada riwayat transaksi.</div>`;
             return;
         }
 
-        // Tampilkan data (terbaru di posisi paling atas)
-        list.innerHTML = data.reverse().map(t => `
-            <div class="testi-card">
+        // Render Data dengan Emoji Support
+        list.innerHTML = data.reverse().map((t, index) => `
+            <div class="testi-card" style="animation-delay: ${index * 0.1}s">
                 <div class="card-top">
-                    <span class="buyer-name">@${t.buyer}</span>
-                    <span class="date">${t.date}</span>
+                    <div class="buyer-info">
+                        <span class="buyer-name">${t.buyer}</span>
+                        <span class="date"><i class="far fa-calendar-alt"></i> ${t.date}</span>
+                    </div>
+                    <div class="status-tag">Completed</div>
                 </div>
-                <div class="item-badge">Done ${t.item} ✅</div>
+                
+                <div class="item-name">
+                    <i class="fas fa-box-open" style="color:var(--accent)"></i> 
+                    ${t.item}
+                </div>
+
                 ${t.img ? `
-                    <img src="https://raw.githubusercontent.com/${CFG.user}/${CFG.repo}/main/${t.img}" 
-                         class="evidence-img" 
-                         alt="Bukti"
-                         onerror="this.style.display='none'">
+                    <div class="evidence-wrapper">
+                        <img src="https://raw.githubusercontent.com/${CFG.user}/${CFG.repo}/main/${t.img}" 
+                             class="evidence-img" 
+                             alt="Bukti Transaksi"
+                             loading="lazy">
+                    </div>
                 ` : ""}
-                <p class="message">"${t.msg}"</p>
+
+                <div class="message">
+                    ${t.msg}
+                </div>
             </div>
         `).join('');
 
     } catch (err) {
-        console.error(err);
         list.innerHTML = `
-            <div class="status-msg" style="color: #ef4444;">
-                <i class="fas fa-exclamation-circle"></i><br>
-                Gagal memuat database.<br>
-                <small>Pastikan repo publik & file testi.json tersedia.</small>
+            <div class="error-state">
+                <i class="fas fa-database fa-2x"></i><br><br>
+                <b>Gagal Sinkronisasi Database</b><br>
+                <small>Silakan coba segarkan halaman ini.</small>
             </div>`;
     }
 }
 
-// Jalankan saat halaman dibuka
 loadData();
 </script>
 </body>
