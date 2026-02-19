@@ -33,5 +33,12 @@
     "msg": "✅UPDATE: Transaksi berhasil diverifikasi. Akun telah dipindahkan ke pembeli dan dana telah dicairkan ke penjual. Aman & Terpercaya!",
     "img": "img/1771302467123-1000662415.jpg",
     "date": "17 Feb 2026"
+  },
+  {
+    "buyer": "✅ Verified Transaction",
+    "item": "Akun FF Old S1",
+    "msg": "✅ UPDATE: Proses Log-Cek-Done telah selesai. Data valid dan transaksi dinyatakan BERHASIL oleh sistem Exyzz STR.",
+    "img": "img/1771498396759-1000677062.jpg",
+    "date": "19 Feb 2026"
   }
 ]
