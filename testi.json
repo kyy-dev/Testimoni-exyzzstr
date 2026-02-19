@@ -33,5 +33,12 @@
     "msg": "✅UPDATE: Transaksi berhasil diverifikasi. Akun telah dipindahkan ke pembeli dan dana telah dicairkan ke penjual. Aman & Terpercaya!",
     "img": "img/1771302467123-1000662415.jpg",
     "date": "17 Feb 2026"
+  },
+  {
+    "buyer": "✅ Verified Transaction",
+    "item": "MC 35 Ex",
+    "msg": "✅ UPDATE: Proses Log-Cek-Done telah selesai. Data valid dan transaksi dinyatakan BERHASIL oleh sistem Exyzz STR.",
+    "img": "img/1771534623551-1000677372.jpg",
+    "date": "20 Feb 2026"
   }
 ]
